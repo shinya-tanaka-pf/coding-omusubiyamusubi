@@ -911,6 +911,7 @@ video{
   display: grid;
   gap:200px 0;
   grid-template-columns: repeat(1,1fr);
+  /* transition: column-gap 0.3s ease; */
 }
 #ml-1{
   grid-template-columns: repeat(1,1fr);
@@ -1386,7 +1387,8 @@ video{
 /* menu */
    .menu-list{
     display: grid;
-    gap:200px 21%;
+    row-gap: 200px;
+    column-gap: clamp(5px, 17.35vw, 21%);
     grid-template-columns: repeat(2,1fr);
   }
 
@@ -1399,7 +1401,8 @@ video{
   }
     .menu-card{
       margin: 0 0 0 auto;
-      width: 345px;
+      /* width: 345px; */
+      width: auto;
     }
     .menu-card:nth-child(even){
       margin: 0 auto 0 0;
@@ -1654,5 +1657,12 @@ video{
 #rice .rice-last-word{
   margin: 0 auto;
   padding: 16px 120px;}
+
 }
+/* @media (min-width:1440px) {
+  .menu-list{
+    column-gap: 21%;
+  }
+  
+  } */
 /* //rice-page css ブレイクポイント別 */
