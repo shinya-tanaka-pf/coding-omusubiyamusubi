@@ -70,6 +70,7 @@ h2 {
     width: 230px;
   }
   .header-inner {
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     padding-top: 1rem;
@@ -82,7 +83,9 @@ h2 {
 
 #index .readmore-btn a {
   display: block;
-  background-image: url(../img/readmore-not-hover.png); 
+  background-image: url(../img/readmore-not-hover.png);
+  /* width: 100%; */
+/*  height: 119px;*/  
   width: 237px;
   height: 110px;
 }
@@ -364,9 +367,9 @@ footer small {
 #index .shop-text-inner::before {
   content: "";
   position: absolute;
-  inset: 1.5% 3.5%;
+  inset: 1.5% 3.5%; /* shop-text の内側10% */
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 24px;
+  border-radius: 24px; /* ← ここで角丸 */
   z-index: -1;
 }
   #index .shop-text {
@@ -383,15 +386,19 @@ footer small {
     font-size: 2rem;
     letter-spacing: 0.1em;
     line-height: 1.4;
+    /* width: 91%; */
     width: 100%;
     padding-top: 38px;
     padding-bottom: 16px;
-    display: inline-block;
-    text-align: left; 
-    word-break: keep-all;
-    overflow-wrap: anywhere;
+    /* display: flex; */
+    display: inline-block;   /* ← 重要 */
+    text-align: left;        /* 左揃え維持 */
+    /* justify-content: center; */
+    word-break: keep-all;/* CJKテキストでの折り返しを無効化 */
+    overflow-wrap: anywhere;/* 長い単語でも折り返し可能に */
   }
   #index .shop-text ul {
+    /* width: 73.6%; */
     width: 83.6%;
     margin-inline: auto;
   }
@@ -420,52 +427,61 @@ footer small {
   display: none;
   position: absolute;
   top: 100px;
+  /* left:65%;
+  transform: translate(-70%, 0); */
   margin-inline: auto;
   width: 100%;
   max-width:1210px;
   pointer-events: none; /* ←クリックを背景に通す（必要なら） */
   z-index: -1; /* 背景より前面に出す */
-}
-.box-sp{
-  display: block;
-  position: absolute;
-  top: 250px;
-  margin-inline: auto;
-  width: 100%;
-  max-width: 375px;
-  pointer-events: none; /* ←クリックを背景に通す（必要なら） */
-  z-index: -1; /* 背景より前面に出す */
   }
-#mask path{
-  display: none;
-  fill:none;
-  stroke:#ffffff;
-  stroke-width:7;
-  stroke-dasharray: 26765px;/*パスの長さ（イラレより参照）*/
-  stroke-dashoffset: 26765px;
-  }
+  .box-sp{
+    display: block;
+    position: absolute;
+    /* top: 185px; */
+    top: 250px;
+    /* left:70%;
+    transform: translate(-70%, 0); */
+    margin-inline: auto;
+    width: 100%;
+    /* max-width:1210px; */
+    max-width: 375px;
+    pointer-events: none; /* ←クリックを背景に通す（必要なら） */
+    z-index: -1; /* 背景より前面に出す */
+    }
+  #mask path{
+    display: none;
+    fill:none;
+    stroke:#ffffff;
+    stroke-width:7;
+    stroke-dasharray: 26765px;/*パスの長さ（イラレより参照）*/
+    stroke-dashoffset: 26765px;
+    }
 
-#mask-sp path{
-  display:block;
-  fill:none;
-  stroke:#ffffff;
-  stroke-width:7;
-  stroke-dasharray: 16109px;/*パスの長さ（イラレより参照）*/
-  stroke-dashoffset: 16109px;
-  }
+    #mask-sp path{
+      display:block;
+      fill:none;
+      stroke:#ffffff;
+      stroke-width:7;
+      stroke-dasharray: 16109px;/*パスの長さ（イラレより参照）*/
+      stroke-dashoffset: 16109px;
 
-#paint{
-  mask: url(#out);
-  stroke: #fff;
-}
-#paint-sp{
-  mask: url(#out-sp);
-  stroke: #fff;
-}
-g{
-  fill:#fff;
-}
+      }
+
+    #paint{
+      mask: url(#out);
+      stroke: #fff;
+    }
+    #paint-sp{
+      mask: url(#out-sp);
+      stroke: #fff;
+    }
+    g{
+      fill:#fff;
+    }
+
 /* //index-page css */
+
 /* history-page css */
 video{
   width: 100%;
@@ -492,6 +508,7 @@ video{
   height: 160px;
   object-fit: cover;
   aspect-ratio: 1/1 ;
+  
 }
 .history-inner{
   text-align: center;
@@ -721,7 +738,7 @@ video{
 .menu-card{
   position: relative;
   height:485px;
-  width: 345px;
+  width: auto;
   background-color: #fff;
   padding-bottom: 24px;
   padding-inline: 24px;
@@ -1347,6 +1364,7 @@ video{
   height: auto;
  }
 
+
    .historyreverse-{
     display: flex;
   }
@@ -1366,7 +1384,7 @@ video{
   font-size: 1.6rem;
  }
 /* menu */
-  .menu-list{
+   .menu-list{
     display: grid;
     gap:200px 21%;
     grid-template-columns: repeat(2,1fr);
@@ -1377,55 +1395,62 @@ video{
   }
 
   .energy{
-    width: 16em;
+  width: 16em;
   }
-  .menu-card{
-    margin: 0 0 0 auto;
-  }
-  .menu-card:nth-child(even){
-    margin: 0 auto 0 0;
-  }
-  /* 背景の米粒*/
-  .menu-main{
-    background-image: url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp);
-    background-position: top 106px left 15% , top 106px right 15% , top 500px left 15% , top 500px right 15%;
-  }
-  .menu-all{
-    background-image: url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp);
-    background-position: top 633px left 15% , top 633px right 5% , top 1025px left 8% , top 1350px right 50% , top 1700px right 0% , top 2075px right 50% , top 2325px left 3% , top 2325px right 3%;
-  }
-  .rice-sp{
-    display:none;
-  }
+    .menu-card{
+      margin: 0 0 0 auto;
+      width: 345px;
+    }
+    .menu-card:nth-child(even){
+      margin: 0 auto 0 0;
+    }
+        /* 背景の米粒*/
+        .menu-main{
+          background-image: url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp);
+          background-position: top 106px left 15% , top 106px right 15% , top 500px left 15% , top 500px right 15%;
+        }
+        .menu-all{
+          background-image: url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp),url(../img/rice-grain.webp);
+          background-position: top 633px left 15% , top 633px right 5% , top 1025px left 8% , top 1350px right 50% , top 1700px right 0% , top 2075px right 50% , top 2325px left 3% , top 2325px right 3%;
+        }
+        .rice-sp{
+          display:none;
+        }
 
   .menu-last{
     display: flex;
     justify-content:space-between;
+
   }
   .menu-notess-last{
     margin-block:55px ;
-    align-content: center;
-    width: 50%;
+   align-content: center;
+   width: 50%;
   }
   .menu-last-inner{
     flex: 1;
     width: 50%;
   }
-  /* rice-page css */
+
+    /* rice-page css */
 
   #rice .rice-mainvisual p{
     padding-bottom: 72px;
   }
+
   #rice .rice-section-image{
     width: 50%;
   }
+
   #rice .rice-contents{
     width: 50%;
   }
+
   #rice .rice-contents{
     display: flex;
     flex-direction: column;
   }
+
   #rice .rice-section-image img{
     mask-image: linear-gradient(to left, rgb(0 ,0 ,0 , 1) 50%, rgba(0, 0, 0,  0) );
   }
@@ -1443,6 +1468,7 @@ video{
     flex-direction: row-reverse;
     align-items: center;
   }
+
   #rice .rice-birth-history .rice-contents{
     background-image: url(../img/rice-plant-row-right.webp);
     background-size: contain;
@@ -1564,9 +1590,9 @@ video{
   #mask path{
     display: block;
     }
-  #mask-sp path{
-    display:none;
-  }
+    #mask-sp path{
+      display:none;
+      }
 
 } 
 
